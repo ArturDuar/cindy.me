@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Navbar estilo iPhone Pro</title>
+
+  <!-- Bootstrap 5.3 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Iconos Bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+  <style>
+    :root {
+      --apple-blue: #0071e3;
+      --glass-white: rgba(255, 255, 255, 0.25);
+      --glass-border: rgba(255, 255, 255, 0.4);
+    }
+
+    body {
+      background: linear-gradient(145deg, #f5f5f7, #e0e0e0);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+      color: #1c1c1e;
+      overflow-x: hidden;
+    }
+
+    /* ==== NAVBAR ==== */
+    .navbar-glass {
+      backdrop-filter: blur(16px) saturate(180%);
+      -webkit-backdrop-filter: blur(16px) saturate(180%);
+      background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.15) 100%);
+      border-bottom: 1px solid var(--glass-border);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+      transition: all 0.4s ease-in-out;
+    }
+
+    .navbar-glass:hover {
+      background: linear-gradient(135deg, rgba(255,255,255,0.55), rgba(255,255,255,0.2));
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    /* ==== BRAND ==== */
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      font-size: 1.3rem;
+      color: #000;
+      letter-spacing: 0.5px;
+      transition: transform 0.3s ease;
+    }
+
+    .navbar-brand:hover {
+      transform: scale(1.05);
+    }
+
+    .navbar-brand i {
+      font-size: 1.6rem;
+      color: #000;
+      background: linear-gradient(135deg, #000, #434343);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* ==== LINKS ==== */
+    .nav-link {
+      color: #1c1c1e !important;
+      font-weight: 500;
+      position: relative;
+      transition: all 0.3s ease;
+      margin: 0 8px;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -3px;
+      width: 0;
+      height: 2px;
+      background: var(--apple-blue);
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+
+    .nav-link:hover::after {
+      width: 60%;
+    }
+
+    .nav-link:hover {
+      color: var(--apple-blue) !important;
+    }
+
+    /* ==== TOGGLER ==== */
+    .navbar-toggler {
+      border: none;
+      background: transparent;
+    }
+
+    .navbar-toggler:focus {
+      box-shadow: none;
+    }
+
+    .navbar-toggler i {
+      font-size: 1.7rem;
+      color: #1c1c1e;
+    }
+
+    /* ==== RESPONSIVE MENU ==== */
+    @media (max-width: 992px) {
+      .navbar-collapse {
+        background: rgba(255,255,255,0.7);
+        border-radius: 18px;
+        padding: 15px;
+        margin-top: 10px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+      }
+      .nav-link {
+        display: block;
+        margin: 10px 0;
+      }
+    }
+
+    /* ==== ANIMACIÓN ==== */
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    nav.navbar {
+      animation: fadeInDown 0.8s ease;
+    }
+
+    /* ==== MODO OSCURO AUTOMÁTICO ==== */
+    @media (prefers-color-scheme: dark) {
+      body {
+        background: linear-gradient(145deg, #0a0a0a, #1c1c1e);
+        color: #f2f2f2;
+      }
+      .navbar-glass {
+        background: rgba(20,20,20,0.4);
+        border-color: rgba(255,255,255,0.1);
+      }
+      .nav-link {
+        color: #f2f2f2 !important;
+      }
+      .navbar-brand i {
+        color: #f2f2f2;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-glass fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <i class="bi bi-apple"></i> Cindy Pineda🌻
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <i class="bi bi-list"></i>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link active" href="#">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Portafolio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Sobre mí</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
